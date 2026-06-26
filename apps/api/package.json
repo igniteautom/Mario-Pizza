@@ -1,0 +1,25 @@
+{
+  "name": "@ignite/api",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc --outDir dist",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
+    "@supabase/supabase-js": "^2.43.0",
+    "@upstash/redis": "^1.31.0",
+    "express": "^4.19.0",
+    "express-rate-limit": "^7.3.0",
+    "zod": "^3.23.0",
+    "stripe": "^15.11.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.0",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.0.0"
+  }
+}

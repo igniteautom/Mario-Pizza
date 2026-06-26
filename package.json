@@ -1,0 +1,15 @@
+{
+  "name": "ignite-automations",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev:api": "npm --workspace=apps/api run dev",
+    "build:api": "npm --workspace=apps/api run build",
+    "db:migrate": "echo 'Run packages/db/migrations/*.sql in Supabase SQL editor'",
+    "lint": "eslint apps/ packages/ --ext .ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

@@ -1,0 +1,39 @@
+# ================================================================
+# Ignite Automations — Railway deployment
+# Copy this to railway.toml at repo root
+# ================================================================
+
+[build]
+builder = "DOCKERFILE"
+
+# API Service
+[[services]]
+name = "ignite-api"
+source = "apps/api"
+
+[services.deploy]
+startCommand = "node dist/index.js"
+healthcheckPath = "/health"
+healthcheckTimeout = 10
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+[[services.envs]]
+# Set these in Railway dashboard → Variables
+# SUPABASE_URL
+# SUPABASE_SERVICE_KEY
+# ANTHROPIC_API_KEY
+# UPSTASH_REDIS_REST_URL
+# UPSTASH_REDIS_REST_TOKEN
+# BASE_URL (your Railway public URL)
+
+# n8n Service
+[[services]]
+name = "ignite-n8n"
+dockerImage = "n8nio/n8n:latest"
+
+[services.deploy]
+healthcheckPath = "/healthz"
+
+[[services.volumes]]
+mountPath = "/home/node/.n8n"
